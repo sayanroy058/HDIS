@@ -19,6 +19,7 @@
  */
 
 @theme inline {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -26,6 +27,17 @@
   --radius-2xl: calc(var(--radius) + 8px);
   --radius-3xl: calc(var(--radius) + 12px);
   --radius-4xl: calc(var(--radius) + 16px);
+  --color-critical: var(--critical);
+  --color-critical-foreground: var(--critical-foreground);
+  --color-critical-soft: var(--critical-soft);
+  --color-warn: var(--warn);
+  --color-warn-soft: var(--warn-soft);
+  --color-good: var(--good);
+  --color-good-soft: var(--good-soft);
+  --color-info: var(--info);
+  --color-info-soft: var(--info-soft);
+  --color-surface: var(--surface);
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -46,14 +58,6 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
   --color-ring-offset-background: var(--background);
-  --color-primary-soft: var(--primary-soft);
-  --color-warning: var(--warning);
-  --color-warning-foreground: var(--warning-foreground);
-  --color-success: var(--success);
-  --color-success-foreground: var(--success-foreground);
-  --font-display: var(--font-display);
-  --font-sans: var(--font-sans);
-  --font-mono: var(--font-mono);
   --color-chart-1: var(--chart-1);
   --color-chart-2: var(--chart-2);
   --color-chart-3: var(--chart-3);
@@ -70,38 +74,37 @@
 }
 
 :root {
-  --radius: 0.625rem;
-  /* Clean medical light palette */
-  --background: oklch(0.99 0.004 220);
-  --foreground: oklch(0.22 0.04 240);
+  --radius: 0.875rem;
+  --background: oklch(0.985 0.004 264);
+  --foreground: oklch(0.22 0.03 265);
+  --surface: oklch(1 0 0);
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.22 0.04 240);
+  --card-foreground: oklch(0.22 0.03 265);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.22 0.04 240);
-  --primary: oklch(0.58 0.09 195);
-  --primary-foreground: oklch(0.99 0.003 220);
-  --primary-soft: oklch(0.94 0.03 195);
-  --secondary: oklch(0.96 0.01 220);
-  --secondary-foreground: oklch(0.22 0.04 240);
-  --muted: oklch(0.96 0.008 220);
-  --muted-foreground: oklch(0.5 0.03 235);
-  --accent: oklch(0.94 0.04 195);
-  --accent-foreground: oklch(0.3 0.06 220);
-  --warning: oklch(0.78 0.13 75);
-  --warning-foreground: oklch(0.28 0.07 60);
-  --success: oklch(0.72 0.13 155);
-  --success-foreground: oklch(0.25 0.06 160);
-  --destructive: oklch(0.62 0.21 25);
-  --destructive-foreground: oklch(0.99 0.003 220);
-  --border: oklch(0.92 0.012 220);
-  --input: oklch(0.92 0.012 220);
-  --ring: oklch(0.58 0.09 195);
-  --gradient-hero: radial-gradient(ellipse at top, oklch(0.94 0.04 195 / 0.55), transparent 60%);
-  --shadow-soft: 0 1px 2px oklch(0.22 0.04 240 / 0.04), 0 8px 24px oklch(0.22 0.04 240 / 0.06);
-  --shadow-card: 0 1px 0 oklch(0.22 0.04 240 / 0.03), 0 12px 32px -12px oklch(0.22 0.04 240 / 0.12);
-  --font-display: "Instrument Serif", ui-serif, Georgia, serif;
-  --font-sans: "Inter Tight", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --popover-foreground: oklch(0.22 0.03 265);
+  --primary: oklch(0.53 0.21 285);
+  --primary-foreground: oklch(0.99 0.003 265);
+  --secondary: oklch(0.965 0.008 275);
+  --secondary-foreground: oklch(0.32 0.06 280);
+  --muted: oklch(0.968 0.006 265);
+  --muted-foreground: oklch(0.55 0.03 265);
+  --accent: oklch(0.955 0.02 285);
+  --accent-foreground: oklch(0.4 0.14 285);
+  --destructive: oklch(0.6 0.22 20);
+  --destructive-foreground: oklch(0.99 0.003 265);
+  --critical: oklch(0.6 0.22 20);
+  --critical-foreground: oklch(0.99 0.003 265);
+  --critical-soft: oklch(0.965 0.03 20);
+  --warn: oklch(0.72 0.16 62);
+  --warn-soft: oklch(0.97 0.035 70);
+  --good: oklch(0.63 0.15 158);
+  --good-soft: oklch(0.96 0.04 160);
+  --info: oklch(0.6 0.15 240);
+  --info-soft: oklch(0.96 0.03 240);
+  --border: oklch(0.925 0.01 265);
+  --input: oklch(0.925 0.01 265);
+  --ring: oklch(0.53 0.21 285);
+
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
@@ -160,12 +163,5 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
-    font-family: var(--font-sans);
-    font-feature-settings: "ss01", "cv11";
-  }
-
-  h1, h2, h3 {
-    font-family: var(--font-display);
-    letter-spacing: -0.01em;
   }
 }
